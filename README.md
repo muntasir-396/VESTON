@@ -9,6 +9,12 @@
 </p>
 
 <p align="center">
+  <a href="https://veston-tau.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-veston--tau.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo on Vercel" />
+  </a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/React-19.0-61DAFB?logo=react&logoColor=black" alt="React" />
   <img src="https://img.shields.io/badge/Vite-6.0-646CFF?logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?logo=tailwind-css&logoColor=white" alt="Tailwind" />
@@ -16,6 +22,20 @@
   <img src="https://img.shields.io/badge/Supabase-Database%20%26%20Auth-3ECF8E?logo=supabase&logoColor=white" alt="Supabase" />
   <img src="https://img.shields.io/badge/ComfyUI-AI%20Virtual%20Try--On-FF6F00" alt="ComfyUI" />
 </p>
+
+---
+
+## 🌐 Live Website & Demo
+
+The application is deployed live and publicly accessible:
+
+👉 **[https://veston-tau.vercel.app/](https://veston-tau.vercel.app/)**
+
+> **Anyone can visit freely** without setup! You can:
+> - Browse the curated luxury collection across all categories (**Dresses**, **Outerwear**, **Knitwear**, **Bottoms**, and **Tops**).
+> - Explore detailed interactive product views, color swatches, and size selectors.
+> - Launch the **Virtual Try-On** feature to test AI garment fitting on photos or pre-loaded models.
+> - Test the cart, simulated checkout, quick-view modal, and responsive design on desktop, tablet, or mobile.
 
 ---
 
@@ -54,6 +74,7 @@
 - **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Lucide Icons, Framer Motion, Recharts
 - **Backend**: Node.js, Express, Multer (in-memory file processing), Helmet, CORS, Morgan
 - **Database & Services**: Supabase (PostgreSQL, Auth, Storage)
+- **Deployment**: Vercel (Production SPA & Serverless Functions)
 - **AI Engine**: ComfyUI API integration for virtual try-on image generation
 
 ---
