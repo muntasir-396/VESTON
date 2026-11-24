@@ -38,3 +38,4 @@ export async function fetchAllProducts(): Promise<Product[]> {
   // 3. Fallback: Return curated luxury catalog (guarantees dresses and products are always displayed)
   return DEFAULT_PRODUCTS;
 }
+

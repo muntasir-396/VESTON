@@ -19,67 +19,87 @@ async function seed() {
     console.log('Seeding Supabase...');
 
     const products = [
-    { 
-        name: "Midnight Velvet Blazer", 
-        price: 449.99, 
-        category: "Outerwear", 
-        image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800", 
-        description: "Tailored to perfection, this velvet blazer exudes timeless evening sophistication.", 
-        is_available: 1, 
-        color: "Black", 
-        size: "S,M,L,XL" 
-    },
-    { 
-        name: "Silk Slip Dress", 
-        price: 289.00, 
-        category: "Dresses", 
-        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800", 
-        description: "Minimalist mulberry silk slip dress with a fluid, liquid-like drape.", 
-        is_available: 1, 
-        color: "Champagne", 
-        size: "XS,S,M,L" 
-    },
-    { 
-        name: "Cashmere Turtleneck", 
-        price: 359.50, 
-        category: "Knitwear", 
-        image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=800", 
-        description: "Ultra-fine Italian cashmere for unparalleled warmth and softness.", 
-        is_available: 1, 
-        color: "Camel", 
-        size: "S,M,L,XL" 
-    },
-    { 
-        name: "Tailored Wool Trousers", 
-        price: 229.00, 
-        category: "Bottoms", 
-        image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=800", 
-        description: "Precision-cut tailored trousers in breathable virgin wool.", 
-        is_available: 1, 
-        color: "Grey", 
-        size: "30,32,34,36" 
-    },
-    { 
-        name: "Leather Chelsea Boots", 
-        price: 510.00, 
-        category: "Footwear", 
-        image: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&q=80&w=800", 
-        description: "Handcrafted leather boots with a refined silhouette and durable finish.", 
-        is_available: 1, 
-        color: "Tobacco", 
-        size: "8,9,10,11,12" 
-    },
-    { 
-        name: "Oversized Linen Shirt", 
-        price: 189.00, 
-        category: "Tops", 
-        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=800", 
-        description: "Relaxed-fit shirt crafted from high-grade European linen.", 
-        is_available: 1, 
-        color: "White", 
-        size: "S,M,L,XL,XXL" 
-    }
-];
+        { 
+            name: "Double-Breasted Tailored Blazer Dress", 
+            price: 890.00, 
+            category: "Dresses", 
+            image: "/products/double-breasted-blazer-coat.jpg", 
+            description: "Architectural double-breasted long blazer coat dress with sharp peak lapels and structured masculine tailoring in pure virgin wool.", 
+            is_available: 1, 
+            color: "Charcoal", 
+            size: "XS,S,M,L" 
+        },
+        { 
+            name: "Tailored Single-Breasted Wool Overcoat", 
+            price: 720.00, 
+            category: "Outerwear", 
+            image: "/products/tailored-wool-overcoat.jpg", 
+            description: "Timeless single-breasted overcoat tailored from heavyweight wool with notch lapels, structured shoulders, and angled welt pockets.", 
+            is_available: 1, 
+            color: "Black", 
+            size: "S,M,L,XL" 
+        },
+        { 
+            name: "Laser-Print Denim Coach Jacket", 
+            price: 560.00, 
+            category: "Outerwear", 
+            image: "/products/laser-print-denim-coach-jacket.jpg", 
+            description: "Contemporary streetwear denim jacket featuring laser-etched allover monogram patterning, point collar, and matte silver snap closures.", 
+            is_available: 1, 
+            color: "Indigo", 
+            size: "S,M,L,XL" 
+        },
+        { 
+            name: "Reversible Monogram Nylon Tracktop", 
+            price: 490.00, 
+            category: "Outerwear", 
+            image: "/products/monogram-nylon-tracktop.jpg", 
+            description: "Sport-luxe technical windbreaker jacket engineered with lightweight water-resistant nylon and tonal allover monogram motif.", 
+            is_available: 1, 
+            color: "Navy", 
+            size: "S,M,L,XL" 
+        },
+        { 
+            name: "Textured Wool Knit Buttoned Cardigan", 
+            price: 360.00, 
+            category: "Knitwear", 
+            image: "/products/textured-knit-cardigan.jpg", 
+            description: "Artisanal melange textured knit jacket cardigan crafted from rich wool yarns, featuring a crew neckline and tonal horn buttons.", 
+            is_available: 1, 
+            color: "Brown", 
+            size: "S,M,L,XL" 
+        },
+        { 
+            name: "Fine Merino Wool Turtleneck Sweater", 
+            price: 290.00, 
+            category: "Knitwear", 
+            image: "/products/cashmere-ribbed-turtleneck.jpg", 
+            description: "Sleek second-skin fine-gauge merino wool turtleneck sweater with seamless tubular knit construction and refined ribbed cuffs.", 
+            is_available: 1, 
+            color: "Black", 
+            size: "S,M,L,XL" 
+        },
+        { 
+            name: "Straight-Leg Ecru Denim Trousers", 
+            price: 280.00, 
+            category: "Bottoms", 
+            image: "/products/straight-leg-ecru-denim.jpg", 
+            description: "Tailored straight-cut trousers constructed from heavyweight premium Japanese ecru denim with refined tonal stitching.", 
+            is_available: 1, 
+            color: "Ecru", 
+            size: "30,32,34,36" 
+        },
+        { 
+            name: "Monogram Printed Graphic T-Shirt", 
+            price: 240.00, 
+            category: "Tops", 
+            image: "/products/monogram-printed-tee.jpg", 
+            description: "Luxury relaxed-fit tee cut from heavyweight organic cotton jersey with signature heritage monogram graphics.", 
+            is_available: 1, 
+            color: "Navy", 
+            size: "S,M,L,XL,XXL" 
+        }
+    ];
 
 
     const categories = [

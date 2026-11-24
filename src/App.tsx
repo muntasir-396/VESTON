@@ -1262,7 +1262,7 @@ function MainApp() {
                 {/* Filter Controls */}
                 <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-8 border-b border-black/5 pb-8">
                   <div className="flex items-center gap-8 overflow-x-auto pb-4 md:pb-0 no-scrollbar w-full md:w-auto">
-                    {['All', 'Dresses', 'Outerwear', 'Knitwear', 'Bottoms', 'Footwear', 'Tops'].map(cat => (
+                    {['All', 'Dresses', 'Outerwear', 'Knitwear', 'Bottoms', 'Tops'].map(cat => (
                       <button
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
