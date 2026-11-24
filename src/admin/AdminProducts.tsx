@@ -26,9 +26,11 @@ import {
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { Product, SizeChartRow } from '../types';
+import { DEFAULT_PRODUCTS } from '../data/defaultProducts';
+import { fetchAllProducts } from '../lib/products';
 
 const AdminProducts: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(DEFAULT_PRODUCTS);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAddPanelOpen, setIsAddPanelOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Partial<Product> | null>(null);
@@ -36,9 +38,13 @@ const AdminProducts: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'active' | 'draft' | 'archived'>('all');
 
   const fetchProducts = () => {
-    fetch('/api/products')
-      .then(res => res.json())
-      .then(data => setProducts(data));
+    fetchAllProducts()
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setProducts(data);
+        }
+      })
+      .catch(err => console.warn('Admin fetchProducts:', err));
   };
 
   useEffect(() => {

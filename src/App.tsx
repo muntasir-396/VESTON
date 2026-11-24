@@ -55,6 +55,8 @@ import QuickViewModal from './components/QuickViewModal';
 import ProductZoom from './components/ProductZoom';
 import OurServices from './pages/OurServices';
 import ContactUs from './pages/ContactUs';
+import { DEFAULT_PRODUCTS } from './data/defaultProducts';
+import { fetchAllProducts } from './lib/products';
 
 
 
@@ -226,8 +228,8 @@ const ProductSkeleton = () => (
 
 function MainApp() {
   const { user, logout, isAuthenticated, isAdmin } = useAuth();
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(DEFAULT_PRODUCTS);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(DEFAULT_PRODUCTS);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<Product[]>([]);
@@ -258,7 +260,7 @@ function MainApp() {
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isLoadingProducts, setIsLoadingProducts] = useState(true);
+  const [isLoadingProducts, setIsLoadingProducts] = useState(false);
   const [addingToCartId, setAddingToCartId] = useState<number | null>(null);
   const [notification, setNotification] = useState<{ message: string, type: 'success' | 'info' } | null>(null);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
@@ -381,20 +383,22 @@ function MainApp() {
   }, [isMuted, selectedProduct]);
 
   useEffect(() => {
-    setIsLoadingProducts(true);
-    fetch('/api/products')
-      .then(res => res.json())
+    fetchAllProducts()
       .then(data => {
-        const availableProducts = data.filter((p: Product) =>
-          p.is_available === 1 ||
-          p.is_available === true ||
-          p.is_available === undefined ||
-          p.is_available === null
-        );
-        setProducts(availableProducts);
-        setFilteredProducts(availableProducts);
+        if (Array.isArray(data) && data.length > 0) {
+          const availableProducts = data.filter((p: Product) =>
+            p.is_available === 1 ||
+            p.is_available === true ||
+            p.is_available === undefined ||
+            p.is_available === null
+          );
+          if (availableProducts.length > 0) {
+            setProducts(availableProducts);
+            setFilteredProducts(availableProducts);
+          }
+        }
       })
-      .catch(err => console.error('Fetch error:', err))
+      .catch(err => console.warn('Could not refresh products, keeping catalog:', err))
       .finally(() => setIsLoadingProducts(false));
   }, []);
 
@@ -403,7 +407,12 @@ function MainApp() {
 
     // Category Filter
     if (activeCategory !== 'All') {
-      result = result.filter(p => p.category === activeCategory);
+      result = result.filter(p =>
+        p.category && (
+          p.category.toLowerCase() === activeCategory.toLowerCase() ||
+          p.category.toLowerCase().includes(activeCategory.toLowerCase())
+        )
+      );
     }
 
     // Search Filter
